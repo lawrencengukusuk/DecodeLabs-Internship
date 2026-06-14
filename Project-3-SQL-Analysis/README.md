@@ -3,10 +3,8 @@
 ## Project Overview
 This project analyzes sales transactions from the `Orders` SQLite database to uncover product performance, customer behavior, payment trends, referral effectiveness, and revenue patterns. The notebook combines SQL queries with Python `pandas` analysis to deliver actionable business insights.
 
-## Author
-- Lawrence Ngukusuk
-## Date: 
-- june,2026
+## Author:Lawrence Ngukusuk
+## Date: june,2026
 
 ## Objectives
 - Identify top-performing products by revenue and average order value
