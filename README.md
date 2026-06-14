@@ -1,86 +1,72 @@
-# E-commerce Sales Analysis
+# Data Analysis of an E-commerce Dataset
 
-## Overview
-This repository contains an exploratory data analysis of an e-commerce sales dataset (1200 orders, 14 columns). The analysis inspects order value distribution, outliers, product and channel performance, and relationships between numeric variables.
+## Project Overview
+This project analyzes sales transactions from the `Orders` SQLite database to uncover product performance, customer behavior, payment trends, referral effectiveness, and revenue patterns. The notebook combines SQL queries with Python `pandas` analysis to deliver actionable business insights.
 
-## Problem Statement
-Understand customer purchase behavior and order value drivers to inform inventory, marketing, and checkout optimizations. Identify outliers and high-value orders for further investigation.
+## Author
+- Lawrence Ngukusuk
+## Date: 
+- june,2026
 
 ## Objectives
-- Compute key order-value metrics (mean, median, min, max).
-- Detect and inspect outliers in TotalPrice.
-- Identify top-performing products, payment methods, and referral sources.
-- Analyze correlations between numeric variables.
-- Provide actionable recommendations based on findings.
-
-## Dataset
-- Source file used in analysis: `Dataset for Data Analytics.xlsx`
-- Rows: 1200
-- Columns: 14
-- Missing CouponCode values were filled with `"NO COUPON"`.
-
-## Tools & Libraries
-- Python (pandas, numpy)
-- Visualization: matplotlib, seaborn
-- Environment: Jupyter Notebook
-
-## Methodology
-1. Load dataset into a pandas DataFrame.
-2. Basic data quality checks and missing-value handling.
-3. Descriptive statistics and distribution plots for TotalPrice.
-4. Outlier detection using the IQR method.
-5. Categorical counts and bar charts for product, payment method, and referral source.
-6. Correlation analysis for numeric features.
-
-## Key Metrics
-- Average Order Value: $1053.97
-- Median Order Value: $823.62
-- Minimum Order Value: $11.39
-- Maximum Order Value: $3456.4
-
-## Outlier Analysis (IQR method)
-- Q1 = 410.52
-- Q3 = 1578.47
-- IQR = 1167.95
-- Lower bound = -1341.41
-- Upper bound = 3330.41
-- Number of TotalPrice outliers detected: 8
-
-## Top Categories & Channels
-- Most popular product category: Printer
-- Top 5 product categories: Printer, Tablet, Chair, Laptop, Desk
-- Most popular payment method: Online
-- Most common referral source: Instagram
-
-## Correlation Highlights (with TotalPrice)
-- UnitPrice: 0.717
-- Quantity: 0.615
-- ItemsInCart: 0.393
+- Identify top-performing products by revenue and average order value
+- Determine the payment methods generating the highest revenue
+- Find the top customers by spend
+- Track monthly revenue trends and seasonality
+- Analyze coupon usage impact on average order value
+- Evaluate referral source performance and revenue share
+- Identify high-value products and revenue concentration
+- Review cancelled and returned orders
+- Measure customer retention and returning customer revenue contribution
 
 ## Key Findings
-- Order value distribution is right-skewed with several high-value outliers.
-- TotalPrice is most strongly correlated with UnitPrice and Quantity.
-- Printers, Tablets, Chairs, Laptops, and Desks are the top-selling product categories.
-- Online payments and Instagram referrals are important channels.
+- Top revenue-generating products:
+    - Chair, Printer, Laptop, Tablet, Monitor, Desk, Phone
+- Highest revenue payment method:
+    - Credit Card, closely followed by Online, Cash, Gift Card, and Debit Card
+- Top 10 customers by spend are dominated by single or low-count purchases with high average order values
+- Monthly revenue shows strong variation, with peaks in May 2023, June 2024, and June 2025, and lower revenue months in April and May
+- Coupon impact:
+    - Coupon-used orders generated the majority of revenue and a slightly higher average order value compared to no-coupon orders
+- Referral source performance:
+    - Instagram, Email, Google, Facebook, and Referral are the top channels, with Instagram contributing the largest revenue share
+- High-value products:
+    - All major products exceeded $50,000 in revenue, indicating strong product concentration
+- Cancellation/return review:
+    - Detailed cancelled/returned order history is available for trend and root-cause analysis
+- Customer retention:
+    - Total customers: 1,189
+    - Returning customers: 11
+    - Returning rate: 0.93%
+    - Revenue share from returning customers: 1.54%
+    - One-time customers have a higher average order value than returning customers
+
+## Tools and Technologies
+- SQLite
+- Python
+- pandas
+- Jupyter Notebook
+- SQL for querying transactional data
+- matplotlib / pandas plotting for visual trend analysis
 
 ## Recommendations
-1. Prioritize inventory and restocking for the highest-selling product categories.
-2. Optimize the online payment flow to reduce friction and improve conversions.
-3. Use targeted couponing for customers without coupon usage to increase average order value.
-4. Investigate high-value outliers to confirm validity (special orders, promotions, or data issues).
-5. Focus marketing on top referral channels (e.g., Instagram) and track campaign performance.
+- Prioritize marketing and inventory for top revenue products such as Chair, Printer, Laptop, and Tablet
+- Improve customer retention programs, as returning customers are currently a very small share of orders and revenue
+- Continue investing in strong referral channels like Instagram and Email
+- Investigate causes of cancellations and returns to reduce churn and recover lost revenue
+- Leverage coupon strategies carefully, since coupon orders still maintain strong average order values
+- Review payment processing preferences to optimize checkout experience across Credit Card, Online, Cash, Gift Card, and Debit Card
 
-## Repository Structure
-- Notebook with analysis (Jupyter): contains data loading, cleaning, EDA, visualizations.
-- `Dataset for Data Analytics.xlsx` — source data (not committed).
-- `EXECUTIVE_SUMMARY.md` — executive summary (if present).
-- `README.md` — this file.
+## Best Questions Answered
+- Which products generate the most revenue?
+- What is the average order value by product?
+- Which payment methods drive the highest revenue?
+- Who are the top spending customers?
+- How does revenue trend month over month?
+- What is the impact of coupon usage on revenue and average order value?
+- Which referral sources contribute the most revenue?
+- What are the details of cancelled and returned orders?
+- How healthy is customer retention and what share of revenue comes from repeat buyers?
 
-## How to Reproduce
-1. Open the Jupyter notebook.
-2. Ensure `Dataset for Data Analytics.xlsx` is available in the working directory.
-3. Run cells top-to-bottom to reproduce the analysis and figures.
-
-## Contact
-Analyst: Lawrence Ngukusuk
-
+## Notes
+This analysis is intended to provide a clear business view of sales performance and customer behavior in the Orders dataset. The findings can be used to guide strategic product focus, marketing spend, customer loyalty initiatives, and operational improvements.
