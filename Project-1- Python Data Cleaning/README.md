@@ -50,7 +50,5 @@ This repository contains the data cleaning steps performed on the dataset "datas
 ## Outcome
 The dataset was successfully cleaned: missing values were addressed, duplicate records removed, and data types standardized. The cleaned file `Cleaned_dataset.xlsx` is ready for analysis.
 
-## Recommendations
-- Document any assumptions or imputations applied to missing data.
-- Retain a backup of the raw dataset.
-- Add basic validation checks (value ranges, referential integrity) as part of the ETL pipeline.
+## Author: Lawrence Ngukusuk
+## Date: june,2026
