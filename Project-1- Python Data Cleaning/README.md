@@ -1,44 +1,56 @@
-DATA CLEANING REPORT
+# Data Cleaning Report
 
+## Overview
+This repository contains the data cleaning steps performed on the dataset "dataset for Data Analytics (2).xlsx". The cleaning process standardized formats, handled missing values and duplicates, and produced a cleaned output suitable for downstream analysis.
 
-Tools Used:
-python
-pandas
-openPyXL
+## Tools
+- Python
+- pandas
+- openpyxl
 
-STEPS PERFORMED:
+## Dataset
+- Source file: dataset for Data Analytics (2).xlsx
+- Cleaned output: Cleaned_dataset.xlsx
 
-(1) Loaded the Excel dataset into python using panddas:
-import pandas as pd
-df=pd.read_excel("dataset for Data Analytics (2).xlsx")
+## Cleaning Steps
+1. Load dataset
+    ```python
+    df = pd.read_excel("dataset for Data Analytics (2).xlsx")
+    ```
+2. Inspect structure and sample records
+    ```python
+    df.head()
+    df.info()
+    df.shape
+    ```
+3. Identify missing values
+    ```python
+    df.isnull().sum()
+    ```
+    - Observation: `CouponCode` contained 309 missing values. These were standardized to "No coupon".
+4. Handle missing values where appropriate (e.g., fill, impute, or drop based on context).
+5. Detect duplicate rows
+    ```python
+    df.duplicated().sum()
+    ```
+6. Remove duplicate rows
+    ```python
+    df = df.drop_duplicates()
+    ```
+7. Verify and convert data types (for example, parse date columns to datetime)
+    ```python
+    df['Date'] = pd.to_datetime(df['Date'])
+    ```
+8. Confirm unique identifiers (no duplicate IDs remain).
+9. Save the cleaned dataset
+    ```python
+    df.to_excel("Cleaned_dataset.xlsx", index=False, engine="openpyxl")
+    ```
 
-(2) Inspected the data structure Using:
-print(df.head())
-print(df.info())
-print(df.shape())
+## Outcome
+The dataset was successfully cleaned: missing values were addressed, duplicate records removed, and data types standardized. The cleaned file `Cleaned_dataset.xlsx` is ready for analysis.
 
-(3) Checked for missing values using:
-print(df.isnull().sum())
-Results: CouponCode 309
-Interpretation: the CouponCode contained 309 missing values,Which were replaced with "No coupon"
-
-
-(4) Handled missing values where necessary
-
-(5) Checked for duplicates rows using:
-print(df.duplicates().sum())
-
-(6) Remove duplicates rows using:
-print(df.drop_duplicates())
-
-(7) Verified data formats and converted date columns where necessary
-
-(8)Comfirmed there were no duplicates IDs
-
-(9)Saved the cleaned dataset as Cleaned_dataset.xlsx
-
-OUTCOME:
-The dataset was successfully cleaned by handling missing values,Removing duplicates, and verifying data formats.
-
-
-
+## Recommendations
+- Document any assumptions or imputations applied to missing data.
+- Retain a backup of the raw dataset.
+- Add basic validation checks (value ranges, referential integrity) as part of the ETL pipeline.
